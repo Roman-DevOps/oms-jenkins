@@ -315,6 +315,69 @@
 				</configuration>
 			</plugin>
 
+			
+			<!-- Jacoco plugin-->
+			
+			
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>${jacoco.version}</version>
+				<executions>
+					<execution>
+						<id>prepare-agent</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>report</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>post-unit-test</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+						<configuration>
+							<!-- Sets the path to the file which contains the execution data. -->
+							<filters>
+							<filter>+com.*</filter>
+							
+							<filter>-com.softserveinc.edu.oms.persistence.dao.params.DimensionTypesEnum</filter>
+							<filter>-com.softserveinc.edu.oms.persistence.dao.params.OrderSatusTypes</filter>
+							<filter>-com.softserveinc.edu.oms.persistence.dao.params.user.UserSelectField</filter>
+							
+							<filter>-com.softserveinc.edu.oms.web.ParameterNames</filter>
+							<filter>-com.softserveinc.edu.oms.web.orderitem.util.OrderItemParameters</filter>
+							
+							<filter>-com.softserveinc.edu.oms.web.merchandiserpages.MerchandiserPageParameters</filter>
+							<filter>-com.softserveinc.edu.oms.web.itemManagement.util.ProductSelectField</filter>
+							<filter>-com.softserveinc.edu.oms.web.itemManagement.model.ProductModel</filter>
+							<filter>-com.softserveinc.edu.oms.web.user.model.UserModel</filter>
+							<filter>-com.softserveinc.edu.oms.web.user.util.UserAvailability</filter>
+							<filter>-com.softserveinc.edu.oms.web.user.util.ValidatorRegex</filter>
+							<filter>-com.softserveinc.edu.oms.web.util.pageable.PageableParameters</filter>
+							
+						</filters>
+							<dataFile>target/jacoco.exec</dataFile>
+							<!-- Sets the output directory for the code coverage report. -->
+							<outputDirectory>target/jacoco-ut</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+				<configuration>
+					<systemPropertyVariables>
+						<jacoco-agent.destfile>target/jacoco.exec</jacoco-agent.destfile>
+					</systemPropertyVariables>
+				</configuration>
+			</plugin>
+			
+			<!--
 			<plugin>
 				<groupId>org.sonatype.maven.plugin</groupId>
 					<artifactId>emma-maven-plugin</artifactId>
@@ -341,15 +404,11 @@
 						</filters>
 					</configuration>
 					<executions>
-						<!-- execution>
-							<phase>process-classes</phase>
-							<goals>
-								<goal>instrument</goal>
-							</goals>
-						</execution -->
+						
 					</executions>
 			</plugin>
 
+	               -->
 			
 <plugin>
     <groupId>org.apache.maven.plugins</groupId>
