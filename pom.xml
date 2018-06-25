@@ -14,6 +14,8 @@
 		<org.aspectj-version>1.6.9</org.aspectj-version>
 		<org.slf4j-version>1.5.10</org.slf4j-version>
 		<jacoco.version>0.7.5.201505241946</jacoco.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+                <maven.resources.plugin.version>3.0.2</maven.resources.plugin.version>
 	</properties>
 	<dependencies>
 		<!-- Spring -->
@@ -265,6 +267,7 @@
 				<configuration>
 					<source>${java-version}</source>
 					<target>${java-version}</target>
+					<encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
 			</plugin>
 			<plugin>
