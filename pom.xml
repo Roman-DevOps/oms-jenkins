@@ -14,8 +14,10 @@
 		<org.aspectj-version>1.6.9</org.aspectj-version>
 		<org.slf4j-version>1.5.10</org.slf4j-version>
 		<jacoco.version>0.7.5.201505241946</jacoco.version>
+                <!-- - - - - - Encoding - - - - - -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-                <maven.resources.plugin.version>3.0.2</maven.resources.plugin.version>
+		<maven.resources.plugin.version>3.0.2</maven.resources.plugin.version>
+		<!-- - - - - - Java - - - - - -->
 		<maven.compiler.plugin.version>3.7.0</maven.compiler.plugin.version>
 	</properties>
 	<dependencies>
@@ -175,14 +177,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-se	<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
-				<version>${maven.resources.plugin.version}</version>
-				<configuration>
-					<encoding>${project.build.sourceEncoding}</encoding>
-				</configuration>
-</plugin>curity-web</artifactId>
+			<artifactId>spring-security-web</artifactId>
 			<version>3.0.5.RELEASE</version>
 			<type>jar</type>
 			<scope>compile</scope>
@@ -269,22 +264,21 @@
 	</repositories>
 	<build>
 		<plugins>
-		       <plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
 				<version>${maven.resources.plugin.version}</version>
 				<configuration>
 					<encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
-		        </plugin>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>${maven.compiler.plugin.version}</version>
 				<configuration>
 					<source>${java-version}</source>
 					<target>${java-version}</target>
-					<encoding>${project.build.sourceEncoding}</encoding>
+                                        <encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
 			</plugin>
 			<plugin>
